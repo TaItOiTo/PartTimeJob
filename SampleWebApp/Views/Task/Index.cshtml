@@ -1,0 +1,48 @@
+﻿@model List<SampleWebApp.Models.Task>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Taskの一覧</h2>
+
+
+<table class="table table-striped ">
+    <tr>
+        <th>タスクID</th>
+        <th>タスク名</th>
+        <th>ユーザ名</th>
+        <th>状況</th>
+        <th>重要度</th>
+        <th>タスクの詳細</th>
+        <th>タスクの期日</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.TaskID</th>
+            <th>@item.Title</th>
+            <th>@item.UserInfo.DispUser</th>
+            <th>@item.StateInfo.DispState</th>
+            <th>@item.ImportanceInfo.DispImportance</th>
+            <th>@item.Explain</th>
+            <th>@item.Datetime</th>
+        </tr>
+    }
+</table>
+<div>
+    @using (Html.BeginForm(
+              "Post",
+              "Task",
+              null,
+              FormMethod.Post,
+              new { enctype = "multipart/form-data" }
+              ))
+    {
+        @Html.TextBox("value1", "", new { maxlength = 20 })
+        <input type="submit" value="送信" />
+    }
+</div>
+

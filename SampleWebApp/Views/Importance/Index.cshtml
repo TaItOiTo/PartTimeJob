@@ -1,0 +1,23 @@
+﻿@model List<SampleWebApp.Models.Importance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>状態の一覧</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>ステータスID</th>
+        <th>表示名</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ImportanceID</th>
+            <th>@item.DispImportance</th>
+        </tr>
+        @item.DispImportance
+    }
+</table>
