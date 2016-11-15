@@ -1,0 +1,23 @@
+﻿@model List<SampleWebApp.Models.State>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>状態の一覧</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>ステータスID</th>
+        <th>表示名</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.StateID</th>
+            <th>@item.DispState</th>
+        </tr>
+        @item.DispState
+    }
+</table>
